@@ -23,6 +23,8 @@ require_relative './spec_helper'
 require 'capybara/rspec'
 require 'selenium/webdriver'
 
+# Selenium::WebDriver.logger.level = Logger::DEBUG # uncomment this for lots of logs
+
 DOWNLOADS_DIR = File.expand_path('downloads', __dir__)
 
 Capybara.save_path = File.expand_path('screenshots', __dir__)
