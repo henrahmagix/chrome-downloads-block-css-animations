@@ -19,12 +19,13 @@ end
 
 # require 'pry'
 require 'rspec/autorun'
+require_relative './spec_helper'
 require 'capybara/rspec'
 require 'selenium/webdriver'
 
-DOWNLOADS_DIR = File.expand_path('../downloads', __dir__)
+DOWNLOADS_DIR = File.expand_path('downloads', __dir__)
 
-Capybara.save_path = File.expand_path('../screenshots', __dir__)
+Capybara.save_path = File.expand_path('screenshots', __dir__)
 
 DRIVER = :selenium_chrome_headless
 # DRIVER = :selenium_chrome # bug never occurs in a head-full browser
