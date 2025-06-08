@@ -1,12 +1,12 @@
 ```sh
-ruby spec/chrome_no_animation_until_screenshot_spec.rb
+ruby chrome_no_animation_until_screenshot_spec.rb
 ```
 
 See test file comments.
 
 Failure output: see opacity:0 on the parent element before the screenshot, and opacity:1 after the screenshot.
 ```
-$ ruby ./spec/chrome_no_animation_until_screenshot_spec.rb
+$ ruby chrome_no_animation_until_screenshot_spec.rb
 
 Randomized with seed 63495
 
