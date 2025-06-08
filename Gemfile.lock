@@ -13,9 +13,11 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    coderay (1.1.3)
     diff-lcs (1.6.2)
     logger (1.7.0)
     matrix (0.4.2)
+    method_source (1.1.0)
     mini_mime (1.1.5)
     nokogiri (1.18.8-aarch64-linux-gnu)
       racc (~> 1.4)
@@ -33,6 +35,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.8-x86_64-linux-musl)
       racc (~> 1.4)
+    pry (0.15.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     public_suffix (6.0.2)
     racc (1.8.1)
     rack (3.1.16)
@@ -76,6 +81,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara (~> 3.40)
+  pry (~> 0.15.2)
   rspec (~> 3.13)
   selenium-webdriver (~> 4.33)
 
