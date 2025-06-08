@@ -32,6 +32,17 @@ Capybara.save_path = File.expand_path('screenshots', __dir__)
 DRIVER = :selenium_chrome_headless
 # DRIVER = :selenium_chrome # bug never occurs in a head-full browser
 
+orig_driver_registration = Capybara.drivers[:selenium_chrome_headless]
+Capybara.register_driver :selenium_chrome_headless do |app|
+  orig_driver_registration.call(app).tap do |driver|
+    options = driver.options[:capabilities] || driver.options[:options]
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-gpu') if RUBY_PLATFORM.end_with?('-linux-musl')
+    puts "Driver options: #{options.instance_variable_get(:@options)}"
+  end
+end
+
 RSpec.configure do |c|
   c.fail_fast = true
   c.formatter = "doc"
