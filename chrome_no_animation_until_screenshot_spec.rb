@@ -37,6 +37,8 @@ RSpec.configure do |c|
 end
 
 RSpec.describe 'Chrome blocks animations from running until a screenshot is saved', type: :feature, driver: DRIVER do
+  100.times { it { run } }
+
   def run
     visit 'https://example.org' # use example.org so we don't have to run a webserver
 
@@ -98,8 +100,6 @@ RSpec.describe 'Chrome blocks animations from running until a screenshot is save
       raise
     end
   end
-
-  100.times { it { run } }
 
   private
 
