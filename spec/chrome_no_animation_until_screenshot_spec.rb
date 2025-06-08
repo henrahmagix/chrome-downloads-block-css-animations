@@ -7,7 +7,18 @@
 # should see firstly `"opacity" => "0"` on the `.fade-in` element, and see that change to `"1"` after the screenshot.
 # The animation itself is extremely short, so it's definitely being blocked from progressing immediately upon creation.
 
-require 'pry'
+require 'bundler/inline'
+
+gemfile do
+  source 'https://rubygems.org'
+  gem 'rspec', '~> 3.13'
+  gem 'capybara', '~> 3.40'
+  gem 'selenium-webdriver', '~> 4.33'
+  gem 'pry', '~> 0.15.2'
+end
+
+# require 'pry'
+require 'rspec/autorun'
 require 'capybara/rspec'
 require 'selenium/webdriver'
 
@@ -20,6 +31,7 @@ DRIVER = :selenium_chrome_headless
 
 RSpec.configure do |c|
   c.fail_fast = true
+  c.formatter = "doc"
   c.before { page.driver.browser.download_path = DOWNLOADS_DIR }
 end
 
