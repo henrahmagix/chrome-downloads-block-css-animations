@@ -67,6 +67,15 @@ RSpec.describe 'Chrome blocks animations from running until a screenshot is save
     # If the repeated tests are passing for you, try uncommenting this sleep here.
     # sleep 1
 
+    puts
+    puts 'MOUSE MOVEMENT: move to "More information" link'
+    page.driver.browser.action.move_to(find_link('More information...').native).perform
+    puts 'MOUSE MOVEMENT: move to 100,20'
+    page.driver.browser.action.move_to_location(100, 20).perform
+    puts 'MOUSE MOVEMENT: adjust 10,20'
+    page.driver.browser.action.move_by(10, 20).perform
+    puts 'MOUSE MOVEMENT: DONE'
+
     begin
       # Just confirming the file download is working correctly in the browser, without which this bug doesn't occur.
       before_url = current_url
@@ -100,6 +109,19 @@ RSpec.describe 'Chrome blocks animations from running until a screenshot is save
         puts "checkVisibility: opacityProperty       #{execute_script %(return document.querySelector("[download]").checkVisibility({opacityProperty:true}))}"
         puts "checkVisibility: visibilityProperty    #{execute_script %(return document.querySelector("[download]").checkVisibility({visibilityProperty:true}))}"
       end
+      check_element_visibility.call
+
+      puts
+      puts 'MOUSE MOVEMENT: move to "More information" link'
+      page.driver.browser.action.move_to(find_link('More information...').native).perform
+      puts 'MOUSE MOVEMENT: move to 100,20'
+      page.driver.browser.action.move_to_location(100, 20).perform
+      puts 'MOUSE MOVEMENT: adjust 10,20'
+      page.driver.browser.action.move_by(10, 20).perform
+      puts 'MOUSE MOVEMENT: DONE'
+
+      puts
+      puts 'RETRY: checking visibility again after mouse movement'
       check_element_visibility.call
 
       puts
